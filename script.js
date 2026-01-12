@@ -114,3 +114,66 @@ function getScrollPercent() {
     const scrolled = (scrollTop / (scrollHeight - clientHeight)) * 100;
     return Math.min(100, Math.max(0, scrolled));
 }
+
+// CAROUSEL
+let carouselSlides = document.querySelectorAll('.carousel_slide');
+let progressBar = document.querySelector('.progress');
+let currentIndex = 0;
+
+const slideInterval = 3000;
+
+let slideTimer;
+let startTime = 0;
+let remainingTime = slideInterval;
+
+function showSlide(index, duration = slideInterval) {
+    // Moves the carousel images left
+    const slidesContainer = document.querySelector('.carousel_slides');
+    slidesContainer.style.transform = `translateX(-${index * 100}%)`; // Move the slides div left
+
+    // Reset progress animation
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0%';
+
+    setTimeout(() => {
+        startTime = Date.now();
+        remainingTime = duration;
+
+        progressBar.style.transition = `width ${duration}ms linear`;
+        progressBar.style.width = '100%';
+    }, 50);
+}
+
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % carouselSlides.length;
+    remainingTime = slideInterval;
+    showSlide(currentIndex);
+    startCarousel();
+}
+
+function startCarousel() {
+    startTime = Date.now();
+
+    progressBar.offsetWidth;
+
+    // Animate to 100% by remainingTime
+    progressBar.style.transition = `width ${remainingTime}ms linear`;
+    progressBar.style.width = '100%';
+
+    slideTimer = setTimeout(nextSlide, remainingTime);
+}
+
+
+function stopCarousel() {
+    clearTimeout(slideTimer);
+
+    const elapsed = Date.now() - startTime;
+    remainingTime -= elapsed;
+
+    const progress = ((slideInterval - remainingTime) / slideInterval) * 100;
+    progressBar.style.transition = 'none';
+    progressBar.style.width = `${progress}%`;
+}
+
+showSlide(currentIndex);
+startCarousel();
