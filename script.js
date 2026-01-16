@@ -1,4 +1,5 @@
 // CUSTOM CURSOR
+const cursor = document.querySelector(".custom-cursor");
 document.addEventListener("DOMContentLoaded", () => {
     const cursor = document.querySelector(".custom-cursor");
     // cursor is lerped, mouse is realtime
@@ -102,78 +103,82 @@ document.addEventListener("DOMContentLoaded", () => {
         requestAnimationFrame(updateCursor);
     }
 
-    requestAnimationFrame(updateCursor);
+    requestAnimationFrame(updateCursor); 
 });
 
-// SCROLLING
-function getScrollPercent() {
-    const scrollTop = document.documentElement.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight;
-    const clientHeight = document.documentElement.clientHeight;
 
-    const scrolled = (scrollTop / (scrollHeight - clientHeight)) * 100;
-    return Math.min(100, Math.max(0, scrolled));
+function enableCursor() {
+    cursor.style.display = "inherit";
+    document.documentElement.classList.add("no-cursor");
 }
+
+function disableCursor() {
+    cursor.style.display = "none";
+    document.body.style.cursor = "default";
+    document.documentElement.classList.remove("no-cursor");
+}
+
+enableCursor();
 
 // CAROUSEL
-let carouselSlides = document.querySelectorAll('.carousel_slide');
-let progressBar = document.querySelector('.progress');
-let currentIndex = 0;
+document.querySelectorAll('.carousel').forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const items = Array.from(track.children);
+    const prevBtn = carousel.querySelector('.carousel-button.prev');
+    const nextBtn = carousel.querySelector('.carousel-button.next');
+    const dotsContainer = carousel.querySelector('.dots');
+    const carouselSubtext = carousel.querySelector('.carousel-subtext');
 
-const slideInterval = 3000;
+    let currentIndex = 0;
 
-let slideTimer;
-let startTime = 0;
-let remainingTime = slideInterval;
+    // Create dots
+    items.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot', 'cursor-hover');
+        if (index === 0) dot.classList.add('active');
 
-function showSlide(index, duration = slideInterval) {
-    // Moves the carousel images left
-    const slidesContainer = document.querySelector('.carousel_slides');
-    slidesContainer.style.transform = `translateX(-${index * 100}%)`; // Move the slides div left
+        dot.addEventListener('click', () => moveToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
 
-    // Reset progress animation
-    progressBar.style.transition = 'none';
-    progressBar.style.width = '0%';
+    const dots = Array.from(dotsContainer.children);
 
-    setTimeout(() => {
-        startTime = Date.now();
-        remainingTime = duration;
+    function updateCarousel() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-        progressBar.style.transition = `width ${duration}ms linear`;
-        progressBar.style.width = '100%';
-    }, 50);
-}
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[currentIndex].classList.add('active');
 
-function nextSlide() {
-    currentIndex = (currentIndex + 1) % carouselSlides.length;
-    remainingTime = slideInterval;
-    showSlide(currentIndex);
-    startCarousel();
-}
+        if (carouselSubtext) {
+            carouselSubtext.style.opacity = '0';
+            setTimeout(() => {
+                carouselSubtext.textContent =
+                    items[currentIndex].getAttribute('data-subtext') || '';
+                carouselSubtext.style.opacity = '1';
+            }, 200);
+        }
+    }
 
-function startCarousel() {
-    startTime = Date.now();
+    function moveToSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+    }
 
-    progressBar.offsetWidth;
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        updateCarousel();
 
-    // Animate to 100% by remainingTime
-    progressBar.style.transition = `width ${remainingTime}ms linear`;
-    progressBar.style.width = '100%';
+        prevBtn.classList.add('animated');
+        setTimeout(() => prevBtn.classList.remove('animated'), 200);
+    });
 
-    slideTimer = setTimeout(nextSlide, remainingTime);
-}
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarousel();
 
+        nextBtn.classList.add('animated');
+        setTimeout(() => nextBtn.classList.remove('animated'), 200);
+    });
 
-function stopCarousel() {
-    clearTimeout(slideTimer);
-
-    const elapsed = Date.now() - startTime;
-    remainingTime -= elapsed;
-
-    const progress = ((slideInterval - remainingTime) / slideInterval) * 100;
-    progressBar.style.transition = 'none';
-    progressBar.style.width = `${progress}%`;
-}
-
-showSlide(currentIndex);
-startCarousel();
+    updateCarousel();
+});

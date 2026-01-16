@@ -1,5 +1,5 @@
 :root {
-    --darkerText: rgb(119, 119, 119);
+    --darkerText: rgb(184, 184, 184);
     --text: #fafcff;
     --background: #020916;
     --box: #030811;
@@ -22,8 +22,8 @@ body {
     font-style: normal;
 }
 
-* {
-    cursor: none;
+.no-cursor, .no-cursor * {
+    cursor: none !important;
 }
 
 html {
@@ -106,7 +106,7 @@ small {
 }
 
 ::selection {
-    background: var(--primary);
+    background: var(--text);
     color: var(--background);
 }
 
@@ -126,6 +126,35 @@ small {
     display: block;
     border-bottom: 0.5px solid var(--primary);
     animation: 1s ease-in-out 0s 1 fadeIn_scaleIn2;
+}
+
+/* CUSTOM BUTTONS */
+.custom-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    border: 2px solid var(--button_color);
+    border-radius: 15px;
+
+    background-color: transparent;
+    color: var(--button_color);
+
+    transition: all 0.1s ease;
+}
+
+.custom-button:hover {
+    border: 2px solid black;
+    color: white;
 }
 
 /* ANIMATIONS */
@@ -190,17 +219,9 @@ small {
     }
 }
 
-/* HYPERLINKS */
+/* LINKS */
 a {
-    font-weight: 600;
-
-    color: var(--primary);
-    transition: all 0.2s ease;
-}
-
-a:hover {
-    color: var(--secondary);
-    font-weight: 1000;
+    text-decoration: none;
 }
 
 /* CUSTOM CURSOR */
@@ -250,51 +271,6 @@ a:hover {
     }
 }
 
-/* INFINITE SCROLL EFFECT */
-.scrolling-container {
-    background-color: var(--background);
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    padding-bottom: 35px;
-    overflow: hidden;
-    transform: rotateZ(-1.5deg);
-    border-top: 1px solid #303030;
-    border-bottom: 1px solid #303030;
-}
-
-.scrolling-text {
-    white-space: nowrap;
-    display: flex;
-    animation: scrollText 40s infinite linear;
-    
-    p {
-        font-weight: bold;
-        font-size: 2em;
-        color: var(--primary);
-        margin-bottom: 10px;
-        line-height: 10px;
-    }
-}
-
-.scrolling-text-rotated-background { /* covers the gap between the colors the scrolling text and the thingy below */
-    position: absolute;
-    transform:translateY(32px);
-    background-color: var(--box);
-    width: 99999px;
-    padding-top: 80px;
-}
-
-@keyframes scrollText {
-    from {
-        transform: translateX(0%);
-    }
-
-    to {
-        transform: translateX(-25%);
-    }
-}
-
 /* SECTIONS */
 .portfolio-text_area {
     display: flex;
@@ -315,8 +291,8 @@ a:hover {
 
 .section-subtext {
     text-align: center;
-    font-size: 23px;
-    max-width: 900px;
+    font-size: 27px;
+    max-width: 1500px;
     word-wrap: break-word;
     color: var(--darkerText);
 }
@@ -336,8 +312,8 @@ a:hover {
 .section-image {
     display: flex;
     flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    justify-content: center;
+    align-items: center;
     img {
         width: 800px;
     }
@@ -348,7 +324,13 @@ a:hover {
     }
 }
 
-
+.section-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
 
 .section-box {
     padding: 1rem;
@@ -392,6 +374,13 @@ a:hover {
     padding: 0;
     align-items: center;
     overflow: hidden;
+}
+
+.about-me-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .about-me-card {
@@ -453,52 +442,119 @@ a:hover {
     }
 }
 
-/* IMAGE CAROUSEL */
-.carousel {
-    width: 1000px;
-    aspect-ratio: 16 / 9;
-    position: relative;
-    border-radius: 16px;
-    overflow: hidden;
+.big-number {
+    color: var(--primary);
+    font-size: 99px;
 }
 
-.carousel_slides {
+/* CAROUSEL */
+.carousel-container {
     display: flex;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transition: transform 0.5s ease-in-out;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.carousel_slides a {
-    flex-shrink: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
+.carousel {
+    position: relative;
+    max-width: 800px;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 12px;
+}
 
-    img.carousel_slide {
+.carousel-track {
+    transition: transform 0.3s ease-out;
+    display: flex;
+}
+
+.carousel-item {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+
+    img, video {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.5s ease-in-out;
     }
 }
 
-.progress-bar {
-    width: 100%;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.3);
+.carousel-subtext {
+    transition: opacity 0.3s ease;
+}
+
+.carousel-button {
     position: absolute;
-    bottom: 0;
+    top: 50%;
+    transform: translateY(-10px);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 18px;
+    z-index: 10;
 
-    .progress {
-        height: 100%;
-        width: 0%;
-        background: var(--primary);
-        transition: width 3s linear;
-    }
+    background-color: var(--box);
+    color: var(--text);
+    border: none;
+    scale: 1;
+    transition: all .2s ease;
 }
 
+.animated {
+    background: var(--text);
+    color: var(--box);
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+.dots {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background-color: var(--box);
+    border-radius: 50%;
+    transition: 
+        background-color 0.5s ease,
+        border-radius 0.5s cubic-bezier(.25, .1, .36, 3),
+        scale .4s cubic-bezier(.25, .1, .36, 1.2);
+}
+
+.dot.active {
+    background: var(--primary);
+    border-radius: 35%;
+    scale: 1.8;
+
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
 
 /* PhotoSwipe Gallery */
 .pswp__dynamic-caption--below {
