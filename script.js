@@ -121,19 +121,21 @@ function disableCursor() {
 enableCursor();
 
 // CAROUSEL
-document.querySelectorAll('.carousel').forEach(carousel => {
+document.querySelectorAll('.carousel-container').forEach(container => {
+    const carousel = container.querySelector('.carousel');
     const track = carousel.querySelector('.carousel-track');
     const items = Array.from(track.children);
     const prevBtn = carousel.querySelector('.carousel-button.prev');
     const nextBtn = carousel.querySelector('.carousel-button.next');
     const dotsContainer = carousel.querySelector('.dots');
-    const carouselSubtext = carousel.querySelector('.carousel-subtext');
+
+    const carouselSubtext = container.querySelector('.carousel-subtext');
 
     let currentIndex = 0;
 
     // Create dots
     items.forEach((_, index) => {
-        const dot = document.createElement('div');
+        const dot = document.createElement('span');
         dot.classList.add('dot', 'cursor-hover');
         if (index === 0) dot.classList.add('active');
 

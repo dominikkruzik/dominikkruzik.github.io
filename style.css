@@ -22,6 +22,10 @@ body {
     font-style: normal;
 }
 
+* {
+    scroll-margin-top: 100px;
+}
+
 .no-cursor, .no-cursor * {
     cursor: none !important;
 }
@@ -345,13 +349,13 @@ a {
         gap: 5px;
 
         align-items: center;
-        /* ← add ONLY this */
 
         font-weight: bold;
         color: var(--primary);
         margin-bottom: 0.5rem;
     }
 }
+
 /* ABOUT ME */
 .about-me {
     background-color: var(--box);
@@ -442,11 +446,6 @@ a {
     }
 }
 
-.big-number {
-    color: var(--primary);
-    font-size: 99px;
-}
-
 /* CAROUSEL */
 .carousel-container {
     display: flex;
@@ -461,6 +460,10 @@ a {
     aspect-ratio: 16 / 9;
     overflow: hidden;
     border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel-track {
@@ -485,6 +488,7 @@ a {
 }
 
 .carousel-subtext {
+    font-size: 20px;
     transition: opacity 0.3s ease;
 }
 
@@ -530,7 +534,7 @@ a {
     width: 12px;
     height: 12px;
     margin: 0 5px;
-    background-color: var(--box);
+    background-color: var(--text);
     border-radius: 50%;
     transition: 
         background-color 0.5s ease,
@@ -554,6 +558,85 @@ a {
     to {
         transform: rotate(360deg);
     }
+}
+
+/* TIMELINE */
+.timeline {
+    list-style: none;
+    padding: 0;
+
+    li {
+        padding-top: 0.8rem;
+        padding-bottom: 1.5rem;
+        border-left: 1px solid var(--primary);
+        position: relative;
+        padding-left: 20px;
+        margin-left: 10px;
+
+        &:last-child { /* Make last child (empty li to show just d dot) not have the line to the bottom */
+            border: 0px;
+            padding-bottom: 0;
+        }
+    
+        p::before { /* Dot next to date */
+            content: '';
+            width: 15px;
+            height: 15px;
+            background: var(--text);
+            border: #158ee5 solid 3px;
+            border-radius: 50%;
+            position: absolute;
+            left: -11px;
+            top: 0px;
+        }
+        
+        p {
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    .date {
+        font-weight: bold;
+        position: relative;
+        padding-left: 34px;
+    }
+
+    .date::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 5px;
+    
+        width: 24px;
+        height: 24px;
+    
+        background-image: url("/content/calendar-event.svg");
+        background-color: transparent;
+        background-size: contain;
+        background-repeat: no-repeat;
+        border: 0px;
+        border-radius: 0px;
+    }
+}
+
+@property --start-opacity {
+    syntax: '<number>';
+    initial-value: 0;
+    inherits: false;
+}
+
+.timeline li {
+    color:rgb(163, 51, 233);
+    background: linear-gradient(to right, rgba(163, 51, 233, var(--start-opacity)), rgba(163, 51, 233, 0));
+
+    transition: --start-opacity 0.4s, scale 0.4s;
+}
+
+.timeline li:not(:last-child):hover {
+    scale: 1.01;
+
+    --start-opacity: .7;
 }
 
 /* PhotoSwipe Gallery */

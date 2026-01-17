@@ -42,7 +42,7 @@
 
 <div class="line-anim"></div>
 
-<section class="about-me">
+<section id="about-me" class="about-me">
     <section class="about-me-flex">
         <div class="about-me-text">
             <h1 class="section-header">Kdo jsem</h1>
@@ -54,14 +54,14 @@
                 
                 <p>
                     Začínal jsem stavěním LEGO robotů a jejich programováním. Postupně jsem se přesunul k programu Scratch, protože mě
-                    programování vždy bavilo víc než samotné stavění. Dalším krokem bylo absolvování kurzu Pythonu, který byl
-                    takovým mezikrokem k mému vysněnému cíli - vývoji her v Unity.
+                    programování vždy bavilo víc než samotné stavění. Dále jsem absolvoval kurz Pythonu, který byl
+                    takovým mezikrokem k mému vysněnému cíli - vývoji her.
                 </p>
                 
                 <p>
                     Protože od dětství rád hraji hru Minecraft, který má takový vlastní „programovací jazyk“, netrvalo dlouho a začal jsem v něm
                     vytvářet datapacky a mapy. Moje datapacky se postupně staly natolik úspěšné, že mi rodiče navrhli zkusit je nějak
-                    zpeněžit. Prostřednictvím mojí maminky jsem si založil účet na Patreonu, kde mě dnes podporuje více než 750 lidí, 
+                    zpeněžit. Prostřednictvím mamky jsem si založil účet na Patreonu, kde mě dnes podporuje více než 750 lidí, 
                     z toho přibližně 30 platících uživatelů.
                 </p>
                 
@@ -126,7 +126,7 @@
 
 <div class="line"></div>
 
-<section id="portfolio datapacky" class="portfolio">
+<section id="minecraft-programovani" class="portfolio">
     <section class="about-me-flex">
         <div class="about-me-text">
         <h1 class="section-header">Programování v Minecraftu</h1>
@@ -154,6 +154,8 @@
                 70 a celkově už získaly dohromady přes <strong>1,4 milionů</strong> zhlédnutí a <strong>460 tisíc</strong> stažení.
             </p>
 
+            <!--todo: big numbers here-->
+
             <div class="ps_gallery section-image">
                 <a href="content/minecraft_programming/planetMC-views-downloads-graph.png" data-pswp-width="1495" data-pswp-height="525"> <img
                         src="content/minecraft_programming/planetMC-views-downloads-graph.png" class="cursor-hover">
@@ -176,7 +178,7 @@
                 </a>
             </div>
 
-            <p>
+            <p id="minecraft-programovani-datapack_jam">
                 Zároveň jsem se v roce 2023 na Planet Minecraft zúčastnil soutěže o vytvoření datapacku na téma „Halloween“. Soutěže se
                 účastnilo dalších 13 lidí a umístil jsem se na <strong>1. místě.</strong> Jako výhru jsem získal 100 USD ve Steam kreditech.
             </p>
@@ -292,7 +294,7 @@
     </div>
 </section>
 
-<section id="portfolio datapacky" class="portfolio">
+<section id="unity-blender" class="portfolio">
     <section class="about-me-flex">
         <div class="about-me-text">
             <h1 class="section-header">Unity a Blender</h1>
@@ -313,7 +315,7 @@
                         </svg>
                     Udemy Course
                 </a>
-                <p>
+                <p id="unity-blender-tiny_worlds">
                     V květnu 2025 jsem se zúčastnil dvoutýdenní soutěže ve tvorbě her na téma „Tiny Worlds“. Soutěže se zúčastnilo 1007
                     lidí
                     a v celkovém hodnocení jsem skončil na 667. místě.
@@ -351,7 +353,7 @@
                     </a>
                 </div>
 
-                <p>
+                <p id="unity-blender-gmtk">
                     Ten samý rok o letních prázdninách jsem se zapojil do velmi známé soutěže GMTK Game Jam 2025 na téma „Loop“.
                     Vytvořil jsem hru s názvem Word Loop, kterou jsem následně pro mamku převedl do podoby mobilní aplikace. V soutěži se celkový
                     vítěz nevyhlašuje, vyhlášeny jsou jen výsledky jednotlivých kategorií.
@@ -446,19 +448,65 @@
                     Nejvíce mě zaujala tvorba tzv. Procedural textur, která mi umožňuje vytvářet si sám svoje vlastní PBR textury.
                 </p>
 
+                <div class="carousel-container">
+                    <div class="carousel">
+                        <div class="carousel-track ps_gallery">
+                            <div class="carousel-item" data-subtext="Procedural ornamental renaissance plaster. Finální materiál vlevo dole.">
+                                <a href="content/unity_blender/procedural_material_1.png" data-pswp-width="1921"
+                                    data-pswp-height="1153">
+                                    <img src="content/unity_blender/procedural_material_1.png" class="cursor-hover">
+                                    <span class="pswp-caption-content">Procedural ornamental renaissance plaster. Inspirace vlevo nahoře, konečný materiál vlevo dole.</span>
+                                </a>
+                            </div>
+                            <div class="carousel-item" data-subtext="Procedural ornamental renaissance plaster. Finální materiál vlevo dole.">
+                                <a href="content/unity_blender/procedural_material_2.png" data-pswp-width="1280"
+                                    data-pswp-height="768">
+                                    <img src="content/unity_blender/procedural_material_2.png" class="cursor-hover">
+                                    <span class="pswp-caption-content">Procedural ornamental renaissance plaster. Inspirace vlevo nahoře, konečný materiál vlevo dole.</span>
+                                </a>
+                            </div>
+                            <div class="carousel-item" data-subtext="Procedural ornamental renaissance plaster. Finální materiál vlevo dole.">
+                                <a href="content/unity_blender/pull_lever.png" data-pswp-width="1920"
+                                    data-pswp-height="1080">
+                                    <img src="content/unity_blender/pull_lever.png" class="cursor-hover">
+                                    <span class="pswp-caption-content">Procedural ornamental renaissance plaster. Inspirace vlevo nahoře, konečný materiál vlevo dole.</span>
+                                </a>
+                            </div>
+                        </div>
+                        <button class="carousel-button prev cursor-morph">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-caret-left">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M14 6l-6 6l6 6v-12" />
+                            </svg>
+                        </button>
+                        <button class="carousel-button next cursor-morph">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-caret-right">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M10 18l6 -6l-6 -6v12" />
+                            </svg>
+                        </button>
+                    <div class="dots"></div>
+                    </div>
+                    <p class="carousel-subtext section-subtext"></p>
+                </div>
+
                 <!--todo: carousel with what i did in blender -->
             </div>
         </div>
 </section>
 
-<section id="portfolio datapacky" class="portfolio">
+<section id="webove-stranky" class="portfolio">
     <section class="about-me-flex">
         <div class="about-me-text">
             <h1 class="section-header">Webové Stránky</h1>
             <div class="section-text">
                 <p>
                    O letních prázdninách 2021 jsem strávil týden na táboře JeduEdu, který byl zaměřený na výuku HTML a CSS a základy
-                   JavaScriptu. Získané znalosti jsem následně využil při tvorbě webových stránek pro svou maminku a také při vytvoření
+                   JavaScriptu. Získané znalosti jsem následně využil při tvorbě webových stránek pro svou mamku (Studio Kružítko) a při vytváření
                    tohoto portfolia.
                 </p>
 
@@ -473,55 +521,134 @@
                                 d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
                             <path d="M9 12l2 2l4 -4" />
                         </svg>
-                        Studio Kruziko - webová stránka
+                        Studio Kružítko - webová stránka
                     </a>
                 </div>
             </div>
         </div>
 </section>
 
-<section id="portfolio datapacky" class="portfolio">
+<section id="absolvovane-kurzy-souteze" class="portfolio">
     <section class="about-me-flex">
         <div class="about-me-text">
             <h1 class="section-header">Absolvované kurzy</h1>
             <div class="section-text">
-                <strong>
+                <strong style="font-size: 26px; color:var(--darkerText); text-decoration: underline;">
                     Absolvované kurzy programování
                 </strong>
-                <p>
-                    2018/19 Lego WeDo robotika začátečníci - JeduEdu<br>
-                    2019/20 Lego WeDo robotika pokročilí - JeduEdu<br>
-                    2019/20 Programování Scratch pro začátečníky - JeduEdu<br>
-                    2020/21 Programování Scratch pro pokročilé - JeduEdu<br>
-                    2020/21 Programování micro:bit pro začátečníky - JeduEdu<br>
-                    2021 Letní pobytový tábor programování v přírodě: výuka HTML, CSS a základy JavaScriptu - JeduEdu<br>
-                    2021 Programming Mix Advanced (přechod od vizuálních bloků k reálnému psanému kódu) - Logiscool<br>
-                    2022 Programování v Pythonu - Logiscool<br>
-                    2022/23 Python Advanced - Logiscool<br>
-                    2022/23 Unity Basic - Logiscool<br>
-                    2023/24 Python Master - Logiscool <br>
-                    2023 Unity Advanced - Logiscool<br>
-                    2023/2024 Complete C# Unity 3D Game Development in Unity 6 - GameDev.tv přes Udemy<br>
-                </p>
-                <strong>
+                <ul class="timeline">
+                    <li>
+                        <p class="date">2023/24</p>
+                        <p>Complete C# Unity 3D Game Development in Unity 6 - GameDev.tv přes Udemy</p>
+                    </li>
+                    <li>
+                        <p class="date">2023</p>
+                        <p>Unity Advanced - Logiscool</p>
+                    </li>
+                    <li>
+                        <p class="date">2023/24</p>
+                        <p>Python Master - Logiscool</p>
+                    </li>
+                    <li>
+                        <p class="date">2022/23</p>
+                        <p>Unity Basic - Logiscool</p>
+                    </li>
+                    <li>
+                        <p class="date">2022/23</p>
+                        <p>Python Advanced - Logiscool</p>
+                    </li>
+                    <li>
+                        <p class="date">2022</p>
+                        <p>Programování v Pythonu - Logiscool</p>
+                    </li>
+                    <li>
+                        <p class="date">2021</p>
+                        <p>Programming Mix Advanced (přechod od vizuálních bloků k reálnému psanému kódu) - Logiscool</p>
+                    </li>
+                    <li>
+                        <p class="date">2021</p>
+                        <p>Letní pobytový tábor programování v přírodě: výuka HTML, CSS a základy JavaScriptu - JeduEdu</p>
+                    </li>
+                    <li>
+                        <p class="date">2020/21</p>
+                        <p>Programování micro:bit pro začátečníky - JeduEdu</p>
+                    </li>
+                    <li>
+                        <p class="date">2020/21</p>
+                        <p>Programování Scratch pro pokročilé - JeduEdu</p>
+                    </li>
+                    <li>
+                        <p class="date">2019/20</p>
+                        <p>Programování Scratch pro začátečníky - JeduEdu</p>
+                    </li>
+                    <li>
+                        <p class="date">2019/20</p>
+                        <p>Lego WeDo robotika pokročilí - JeduEdu</p>
+                    </li>
+                    <li>
+                    <li>
+                        <p class="date">2018/19</p>
+                        <p>Lego WeDo robotika začátečníci - JeduEdu</p>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
+                </ul>
+                <strong style="font-size: 26px; color:var(--darkerText); text-decoration: underline;">
                     Absolvované kurzy angličtiny
                 </strong>
-                <p>
-                    2015 - 2022 Helen Doron English a Cambridge English - Živá angličtina <br>
-                    2023 - 2024 EnglishScore Tutors One-to-One - British Council <br>
-                    2024/25 B2 First online - Aspire jazykové a vzdělávací centrum <br>
-                    2025 Zkoušky Cambridge English B2 First - získal jsem certifikát Cambridge C1 Advanced<br>
-                </p>
-                <strong>
+                <ul class="timeline">
+                    <li>
+                        <p class="date">2025</p>
+                        <p>Zkoušky Cambridge English B2 First - získal jsem certifikát Cambridge C1 Advanced</p>
+                    </li>
+                    <li>
+                        <p class="date">2024/25</p>
+                        <p>B2 First online - Aspire jazykové a vzdělávací centrum</p>
+                    </li>
+                    <li>
+                        <p class="date">2023 - 2024</p>
+                        <p>EnglishScore Tutors One-to-One - British Council</p>
+                    </li>
+                    <li>
+                        <p class="date">2015 - 2022</p>
+                        <p>Helen Doron English a Cambridge English - Živá angličtina</p>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
+                </ul>
+                <strong style="font-size: 26px; color:var(--darkerText); text-decoration: underline;">
                     Soutěže
                 </strong>
-                <p>
-                    říjen 2023 soutěž na Planet Minecraft, datapack na téma „Halloween“ - umístění na 1. místě ze 14<br>
-                    prosinec 2024 školní olympiáda z českého jazyka - umístění na 3. místě<br>
-                    květen 2025 GameDev.tv Game Jam 2025, téma „Tiny Worlds“ - umístění na 667. místě z 1007<br>
-                    srpen 2025 GMTK Game Jam 2025, téma „Loop“ - v soutěži se celkový vítěz nevyhlašuje, vyhlášeny jsou jen výsledky
-                    jednotlivých kategorií<br>
-                </p>
+                <ul class="timeline">
+                    <li>
+                        <a class="cursor-hover" href="#unity-blender-gmtk">
+                            <p class="date">srpen 2025</p>
+                            <p>GMTK Game Jam 2025, téma „Loop“ - v soutěži se celkový vítěz nevyhlašuje, vyhlášeny jsou jen výsledky
+                                jednotlivých kategorií</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="cursor-hover" href="#unity-blender-tiny_worlds">
+                            <p class="date">květen 2025</p>
+                            <p>GameDev.tv Game Jam 2025, téma „Tiny Worlds“ - umístění na 667. místě z 1007</p>
+                        </a>
+                    </li>
+                    <li>
+                        <p class="date">prosinec 2024</p>
+                        <p>školní olympiáda z českého jazyka - umístění na 3. místě</p>
+                    </li>
+                    <li>
+                        <a class="cursor-hover" href="#minecraft-programovani-datapack_jam">
+                            <p class="date">říjen 2023</p>
+                            <p>soutěž na Planet Minecraft, datapack na téma „Halloween“ - umístění na 1. místě ze 14</p>
+                        </a>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
