@@ -619,6 +619,12 @@ a {
     }
 }
 
+.timeline-link {
+    color: var(--primary);
+    font-style: italic;
+    text-decoration: underline;
+}
+
 @property --start-opacity {
     syntax: '<number>';
     initial-value: 0;
